@@ -10,13 +10,15 @@ defmodule ElixirChat do
 
     {:ok, conn} = AMQP.Connection.open
     {:ok, channel} = AMQP.Channel.open(conn)
-    {:ok, queue_data } = AMQP.Queue.declare channel, ""
+    {:ok, queue_data} = AMQP.Queue.declare channel, ""
 
     AMQP.Exchange.fanout(channel, "super.chat")
     AMQP.Queue.bind channel, queue_data.queue, "super.chat"
     AMQP.Basic.consume channel, queue_data.queue
 
-    # wait_for_message(user, channel)
+    spawn(fn ->
+      wait_for_message(user, channel)
+    end)
     listen_for_messages(channel, queue_data.queue)
   end
 
