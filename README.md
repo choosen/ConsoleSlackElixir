@@ -1,7 +1,7 @@
 Chat console application (Elixir edition)
 ================
 
-This application communicate with [ruby one](www.github.com), through RabbitMQ message broker
+This application communicate with [ruby one](https://github.com/choosen/ConsoleSlackRuby), through RabbitMQ message broker
 
 ### :hash: App description
 -------------
@@ -26,7 +26,7 @@ Asking for name, joining to chat room, sending and receiving messages.
 ### :book: Run
 -------------
 * `mix`
-* on other terminal `mix` or run [ruby application](www.github.com)
+* on other terminal `mix` or run [ruby application](https://github.com/choosen/ConsoleSlackRuby)
 
 ### :information_source: Dependencies
 -------------
