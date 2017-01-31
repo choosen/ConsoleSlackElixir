@@ -34,9 +34,7 @@ defmodule ElixirChat do
   def wait_for_message(user, channel) do
     message = IO.gets("") |> String.strip
     publish_message(user, message, channel)
-    spawn(fn ->
-      wait_for_message(user, channel)
-    end)
+    wait_for_message(user, channel)
   end
 
   def publish_message(user, message, channel) do
